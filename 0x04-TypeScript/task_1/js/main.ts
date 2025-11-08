@@ -1,26 +1,22 @@
-// Define the Teacher interface
+//Teacher interface
+
 interface Teacher {
-  firstName: string;
-  lastName: string;
-  location: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number; // optional property
+  readonly firstName: string; // cannot be changed after initialization
+  readonly lastName: string;  // cannot be changed after initialization
+  fullTimeEmployee: boolean;  // always defined
+  yearsOfExperience?: number; // optional
+  location: string;           // always defined
+  [key: string]: any;         // allows additional properties like contract
 }
 
-// Define the Directors interface that extends Teacher
-interface Directors extends Teacher {
-  numberOfReports: number;
-}
-
-// Create an object of type Directors
-const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
+// Example usage
+const teacher1: Teacher = {
+  firstName: 'Bitrus',
+  fullTimeEmployee: false,
+  lastName: 'Dauda',
+  location: 'Jos',
+  contract: false,
 };
 
-// Display the director information
-console.log(director1);
+console.log(teacher1);
 
