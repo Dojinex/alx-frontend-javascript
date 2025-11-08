@@ -1,12 +1,12 @@
-//Teacher interface
+// Extending the Teacher class
 
 interface Teacher {
-  readonly firstName: string; // cannot be changed after initialization
-  readonly lastName: string;  // cannot be changed after initialization
-  fullTimeEmployee: boolean;  // always defined
-  yearsOfExperience?: number; // optional
-  location: string;           // always defined
-  [key: string]: any;         // allows additional properties like contract
+  firstName: string;
+  lastName: string;
+  location: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  [key: string]: any;
 }
 
 interface Directors extends Teacher {
@@ -16,7 +16,7 @@ interface Directors extends Teacher {
 const director1: Directors = {
   firstName: 'Bitrus',
   lastName: 'Dauda',
-  location: 'jos',
+  location: 'Jos',
   fullTimeEmployee: true,
   numberOfReports: 17,
 };
