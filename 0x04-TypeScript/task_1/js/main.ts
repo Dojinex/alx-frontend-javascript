@@ -1,19 +1,33 @@
 // ***************
-// Task 2
+// Task 5
 // ***************
 
-interface Directors extends Teacher {
-  numberOfReports: number;
+// Interface for the constructor
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClass;
 }
 
-// Example object
-const director1: Directors = {
-  firstName: 'Jane',
-  lastName: 'Smith',
-  location: 'Abuja',
-  fullTimeEmployee: true,
-  numberOfReports: 5,
-};
+// Interface for the class
+interface StudentClass {
+  workOnHomework(): string;
+  displayName(): string;
+}
 
-console.log(director1);
+// Class implementation
+class StudentClass {
+  firstName: string;
+  lastName: string;
 
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
