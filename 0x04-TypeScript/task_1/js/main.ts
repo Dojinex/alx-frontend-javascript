@@ -1,26 +1,44 @@
-// Define the Teacher interface
+// Teacher interface
 interface Teacher {
-  firstName: string;
-  lastName: string;
-  location: string;
+  readonly firstName: string;
+  readonly lastName: string;
   fullTimeEmployee: boolean;
-  yearsOfExperience?: number; // optional property
+  yearsOfExperience?: number;
+  location: string;
+  [propName: string]: any; // allows additional attributes
 }
 
-// Define the Directors interface that extends Teacher
+// Directors extending Teacher
 interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// Create an object of type Directors
-const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
-};
+// Function to print teacher
+const printTeacher = (firstName: string, lastName: string): string =>
+  `${firstName.charAt(0)}. ${lastName}`;
 
-// Display the director information
-console.log(director1);
+// Interface describing StudentClass
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// Student class
+class StudentClass implements StudentClassInterface {
+  constructor(public firstName: string, public lastName: string) {}
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+// Example usage
+const student = new StudentClass('Paul', 'Jerry');
+console.log(student.displayName()); // Paul
+console.log(student.workOnHomework()); // Currently working
+
 
