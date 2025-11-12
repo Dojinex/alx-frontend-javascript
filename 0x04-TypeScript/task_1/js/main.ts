@@ -41,4 +41,3 @@ const student = new StudentClass('Paul', 'Jerry');
 console.log(student.displayName()); // Paul
 console.log(student.workOnHomework()); // Currently working
 
-
